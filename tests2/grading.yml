@@ -1,0 +1,22 @@
+# grading.yml: va dentro de la carpeta tests_path (tests/grading.yml) en la rama `test`
+
+schemaVersion: 1
+profile: node22-vitest
+limits:
+  timeoutSec: 60
+  memoryMb: 512
+
+suites:
+  - id: publicos
+    name: "Tests publicos"
+    points: 40
+    scoring: proportional
+    select:
+      classes: ["generated.test.js"]
+
+  - id: ocultos
+    name: "Tests ocultos"
+    points: 60
+    scoring: all_or_nothing
+    select:
+      classes: ["hidden.test.js"]
